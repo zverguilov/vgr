@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="INSERT_OR_UPDATE">
+        <class_name/>
+        <order>1</order>
+        <size>12</size>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="2">70fb707907f17010d44bf16c7c1ed034</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2021-08-06 14:13:05</sys_created_on>
+        <sys_id>f4fb707907f17010d44bf16c7c1ed036</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="VGR" source="x_463716_vgr">ae40dcf507717010d44bf16c7c1ed04e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="VGR">ae40dcf507717010d44bf16c7c1ed04e</sys_scope>
+        <sys_update_name>sp_column_f4fb707907f17010d44bf16c7c1ed036</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2021-08-06 14:13:05</sys_updated_on>
+    </sp_column>
+</record_update>

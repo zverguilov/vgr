@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>create</operation>
+        <source_scope display_value="VGR">ae40dcf507717010d44bf16c7c1ed04e</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-05-31 16:10:34</sys_created_on>
+        <sys_id>9b90c039077f8510d44bf16c7c1ed00a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>x_463716_cah_cah_game</sys_name>
+        <sys_package display_value="VGR" source="x_463716_vgr">ae40dcf507717010d44bf16c7c1ed04e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="VGR">ae40dcf507717010d44bf16c7c1ed04e</sys_scope>
+        <sys_update_name>sys_scope_privilege_9b90c039077f8510d44bf16c7c1ed00a</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-05-31 16:17:01</sys_updated_on>
+        <target_name>x_463716_cah_cah_game</target_name>
+        <target_scope display_value="CAH">8d06fb6607bdf010d44bf16c7c1ed0cd</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+</record_update>

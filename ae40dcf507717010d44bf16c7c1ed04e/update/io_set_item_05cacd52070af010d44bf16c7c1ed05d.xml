@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
+    <io_set_item action="INSERT_OR_UPDATE">
+        <order>30000</order>
+        <sc_cat_item display_value="VGR">bccacd52070af010d44bf16c7c1ed023</sc_cat_item>
+        <sys_class_name>io_set_item</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2021-08-20 14:50:28</sys_created_on>
+        <sys_id>05cacd52070af010d44bf16c7c1ed05d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>User Registration Form Default Variable Set.VGR</sys_name>
+        <sys_package display_value="VGR" source="x_463716_vgr">ae40dcf507717010d44bf16c7c1ed04e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="VGR">ae40dcf507717010d44bf16c7c1ed04e</sys_scope>
+        <sys_update_name>io_set_item_05cacd52070af010d44bf16c7c1ed05d</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2021-08-20 14:50:28</sys_updated_on>
+        <variable_set display_value="User Registration Form Default Variable Set">a2c966c573330010fdbd04fbc4f6a773</variable_set>
+    </io_set_item>
+</record_update>

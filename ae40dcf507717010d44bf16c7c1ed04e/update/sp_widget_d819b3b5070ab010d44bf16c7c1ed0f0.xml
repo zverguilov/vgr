@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($window) {
+	/* widget controller */
+	var c = this;
+	
+	c.data.table = c.options.table;
+	c.server.update();
+	
+	c.join = function(id){
+		$window.location.href = '/game_arena?id=' + c.options.page + '&game_id=' + id + '&mode=join';
+	}
+
+	c.create = function() {
+		c.data.method = 'create';
+
+		c.server.update().then(function(res) {
+			$window.location.href = '/game_arena?id=' + c.options.page + '&game_id=' + res.id + '&mode=create'
+		})		 
+	}
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Righteous&amp;display=swap');&#13;
+&#13;
+table {&#13;
+  width: 100%;&#13;
+  table-layout: auto;&#13;
+}&#13;
+&#13;
+#waitingRoom {&#13;
+  //max-height: 150px;&#13;
+  //overflow-y: auto;&#13;
+}&#13;
+&#13;
+tbody, thead {&#13;
+  display: block;&#13;
+}&#13;
+&#13;
+tbody {&#13;
+  max-height: 150px;&#13;
+  overflow-y: auto;&#13;
+  overflow-x: hidden;&#13;
+}&#13;
+&#13;
+th {&#13;
+  margin: 5px;&#13;
+}&#13;
+&#13;
+#head_pos {&#13;
+  text-align: center;&#13;
+  margin: 0 5px 0 5px;&#13;
+}&#13;
+&#13;
+#head_pos, .pos {&#13;
+  min-width: 2vw;&#13;
+}&#13;
+&#13;
+#headP1, .playerOne {&#13;
+	min-width: 11vw;&#13;
+}&#13;
+&#13;
+.playerOne, .pos, .joinButton, #createNewGame {&#13;
+  font-family: Righteous;&#13;
+}&#13;
+&#13;
+.pos {&#13;
+  text-align: center;&#13;
+}&#13;
+&#13;
+&#13;
+.joinButton {&#13;
+  border: none;&#13;
+  background-color: transparent;&#13;
+}&#13;
+&#13;
+.joinButton:hover {&#13;
+  font-weight: bold;&#13;
+}&#13;
+&#13;
+#createNewGame {&#13;
+  border: none;&#13;
+  border-shadow: none;&#13;
+  border-radius: 5px;&#13;
+  color: #fff;&#13;
+  padding: 5px 10px;&#13;
+  display: block;&#13;
+  margin: 10px auto;&#13;
+  font-weight: 100;&#13;
+  background-color: #218376;&#13;
+}&#13;
+&#13;
+#createNewGame:hover {&#13;
+  background-color: #155B51;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>vgr_waitingroom</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>VGR_Waitingroom</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	data.games = [];
+	data.user = gs.getUserID();
+
+	var getData = function(table) {
+
+		var fields = new GlideAggregate('sys_dictionary');
+		fields.addEncodedQuery('name=' + table + '^element=player_three^ORelement=player_four');
+		fields.addAggregate('COUNT');
+		fields.query();
+		var players = 2;
+
+		while(fields.next()) {
+			players += +fields.getAggregate('COUNT');
+		}
+
+
+		var query = 'player_one!=' + data.user + '^player_twoISEMPTY'
+		query += players > 2 ?
+			players == 3 ?
+			'^ORplayer_threeISEMPTY' :
+		players == 4 ?
+			'^ORplayer_fourISEMPTY^ORplayer_threeISEMPTY' : '' : ''
+
+		var gamesTable = new GlideRecord(table);
+		gamesTable.addEncodedQuery(query);
+		gamesTable.query();
+
+		while(gamesTable.next()) {
+			var game = {};
+			game.player_one = gamesTable.getDisplayValue('player_one');
+			game.id = gamesTable.getValue('sys_id');
+			data.games.push(game);
+		}
+	}
+
+
+	var create = function(table) {
+		var newGame = new GlideRecord(table);
+		newGame.initialize();
+		data.id = newGame.insert();
+	}
+
+	if(input) {
+		if(input.method === 'create') {
+			create(input.table);
+		}
+
+		if(input.table) {
+			getData(input.table)
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2021-08-19 14:15:02</sys_created_on>
+        <sys_id>d819b3b5070ab010d44bf16c7c1ed0f0</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>VGR_Waitingroom</sys_name>
+        <sys_package display_value="VGR" source="x_463716_vgr">ae40dcf507717010d44bf16c7c1ed04e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="VGR">ae40dcf507717010d44bf16c7c1ed04e</sys_scope>
+        <sys_update_name>sp_widget_d819b3b5070ab010d44bf16c7c1ed0f0</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-06-02 06:30:00</sys_updated_on>
+        <template><![CDATA[<div id="waitingRoom">
+  <table>
+    <thead ng-if = 'data.games.length < 1'>
+      <th>No one wants to play with you :'( </th>
+    </thead>
+    <thead ng-if = 'data.games.length > 0'>
+      <th id="head_pos" colspan = "1" scope="col"> &#x2116 </th>
+      <th id="headP1" colspan = "1" scope="col"> Player </th>
+      <th colspan = "1" scope="col"></th>
+    </thead>
+    <tbody>
+      <tr ng-repeat = "game in data.games">
+        <td class="pos"> {{$index + 1}}. </td>
+        <td  class="playerOne" ng-bind-html="::game.player_one"></td>
+        <td>
+          <button ng-click = "c.join(game.id)" class='joinButton'> Join </button>
+        </td>
+      </tr> 
+  </table>
+  <input type="button" ng-click="c.create()" id="createNewGame" value="Create New Game"/>
+</div>]]></template>
+    </sp_widget>
+</record_update>

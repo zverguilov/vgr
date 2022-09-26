@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+	var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>@import url('https://fonts.googleapis.com/css2?family=Righteous&amp;display=swap');
+
+#main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.game {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 15vw;
+  box-shadow: 3px 3px 3px lightgrey,
+    -3px 3px 3px lightgrey,
+    3px -3px 3px lightgrey,
+    -3px -3px 3px lightgrey;
+  transition: all .3s;
+}
+
+.game:hover {
+  transition: all .3s;
+  transform: scale(1.03);
+  box-shadow: 6px 6px 6px lightgrey,
+    -6px 6px 6px lightgrey,
+    6px -6px 6px lightgrey,
+    -6px -6px 6px lightgrey;
+}
+
+h1 {
+  font-family: Righteous;
+  text-align: center;
+  font-size: 2.5vw;
+  text-shadow: 1.5px 1.5px lightgrey;
+}
+
+#battleships {
+  background-image: url('battleship.jpg');
+}
+
+#reversi {
+  background-image: url('reversi.png');
+}
+
+#cah {
+  background-image: url('cah.jpg');
+}
+
+.game_container {
+  margin: 3vw;
+  flex-basis: 100%;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>vgr_games</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>VGR_Games</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var reversiInfo = 'Outmaneuver your opponent to get to the strategic positions, then use those to encircle them and win.'
+	var battleshipsInfo = 'Position ships strategically to survive an opponent\'s relentless strikes, and track hits and misses on the ocean grid. No ship is safe in this game of stealth and suspense.'
+	var cahInfo = 'Cards Against Humanity is a fill-in-the-blank party game that turns your awkward personality and lackluster social skills into hours of fun!';
+	
+	data.battleships = $sp.getWidget('vgr_game_section', {table: 'x_463716_battles_0_games',
+																												title: 'Battleships',
+																												info: battleshipsInfo,
+																												page: 'battleships'})
+
+	data.reversi = $sp.getWidget('vgr_game_section', {table: 'x_463716_dev_scope_reversi_game',
+																										title: 'Reversi',
+																										info: reversiInfo,
+																										page: 'reversi'});
+	
+	data.cah = $sp.getWidget('vgr_game_section', {table: 'x_463716_cah_cah_game',
+																							 title: 'Cards against humanity',
+																							 info: cahInfo,
+																							 page: 'cah'})
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2021-08-06 14:10:25</sys_created_on>
+        <sys_id>ef1b74f507f17010d44bf16c7c1ed007</sys_id>
+        <sys_mod_count>216</sys_mod_count>
+        <sys_name>VGR_Games</sys_name>
+        <sys_package display_value="VGR" source="x_463716_vgr">ae40dcf507717010d44bf16c7c1ed04e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="VGR">ae40dcf507717010d44bf16c7c1ed04e</sys_scope>
+        <sys_update_name>sp_widget_ef1b74f507f17010d44bf16c7c1ed007</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-06-01 11:23:48</sys_updated_on>
+        <template><![CDATA[<div>
+  <div id="main">
+    <div class="game_container" >
+      <div class="game" id="battleships"></div>
+      <sp-widget widget="data.battleships"></sp-widget>
+    </div>		
+    <div class="game_container" >
+      <div class="game" id="reversi"></div>
+      <sp-widget widget="data.reversi"></sp-widget>
+    </div>
+    <div class="game_container">
+      <div class="game" id="cah"></div>
+      <sp-widget widget="data.cah"></sp-widget>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

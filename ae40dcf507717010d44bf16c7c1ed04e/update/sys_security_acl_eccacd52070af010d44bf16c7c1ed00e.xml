@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description/>
+        <name>u_self_reg_user_profile_585800</name>
+        <operation display_value="write">write</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2021-08-20 14:50:27</sys_created_on>
+        <sys_id>eccacd52070af010d44bf16c7c1ed00e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_self_reg_user_profile_585800</sys_name>
+        <sys_package display_value="VGR" source="x_463716_vgr">ae40dcf507717010d44bf16c7c1ed04e</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="VGR">ae40dcf507717010d44bf16c7c1ed04e</sys_scope>
+        <sys_update_name>sys_security_acl_eccacd52070af010d44bf16c7c1ed00e</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2021-08-20 14:50:27</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>
